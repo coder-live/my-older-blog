@@ -1,7 +1,7 @@
 <template>
   <div class= "home-footer">
     <div class="foot-one">友情链接:
-      <a href="">某某博客</a>
+      <a href="https://www.wujiabk.com">吴佳博客</a>
     </div>
     <div class="foot-two">2020 littleThinker Blog. 浙ICP备20002521号-1. by 萧逸</div>
   </div>

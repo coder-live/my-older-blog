@@ -47,11 +47,11 @@ export default {
   methods: {
     itemClick(index) {
       this.currentIndex = index;
-      this.$route.path===this.path[index] || this.$router.push(this.path[index]);
+      this.$route.path === this.path[index] || this.$router.replace(this.path[index]);
       //console.log(this.$route.path)
     },
     titleClick() {
-      this.$route.path==="/home" || this.$router.push("home")
+      this.$router.replace("/home")
     }
   }
 
@@ -67,10 +67,11 @@ export default {
   }
   #tab-bar{
     display: flex;
-    background-color: #003;
-    height: 59px;
-    color: #fff;
+    background-color: #fff;
+    height: 61px;
+    color: #333;
     user-select: none;
+    box-shadow: 0 2px 2px rgba(102,102,102,.4);
   }
   .tab-bar-item{
     flex: 1;
@@ -89,6 +90,7 @@ export default {
   }
   .search input{
     width: 18vw;
+    height: 25px;
     padding: 0 10px;
     border-radius: 10px;
     margin-right: 5px;
@@ -96,6 +98,8 @@ export default {
   }
   .search a{
     text-decoration: none;
+    color: #222;
+    margin-left: 5px;
   }
   .active{
     color: red;

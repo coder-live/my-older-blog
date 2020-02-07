@@ -1,7 +1,10 @@
 <template>
   <div class= "home-aside">
-    <home-aside-item v-for= "item in asideItem" :asideTitle="item" 
-    :key="item"></home-aside-item>
+    <home-aside-item v-for= "(item,index) in asideItem" :aside-item="item" isMain= "true" 
+    :key= "item.title" :index= "index"></home-aside-item>
+    <!--asideTitle 中的内容也需要扩大化,进入for循环item,传给子组件.同listItem-->
+    <home-aside-item v-for= "(item,index) in asideComment" :aside-item= "item" 
+    :key= "item.title" :index= "index"></home-aside-item>
     
   </div>
 
@@ -16,7 +19,34 @@ export default {
   },
   data() {
     return {
-      asideItem: ["热门","最新-更新","最新-介绍","最新-了解","最新-想法"]
+      asideItem: [
+        {
+          title: "热门",num: ["2020.01.27","25","22","17"],
+          
+        },
+        {
+          title: "最新-更新",num: ["2020.01.27","11","9","6"],
+          
+        },
+        {
+          title: "最新-想法",num: ["2020.01.27","33","25","19"],
+          
+        }
+      ],
+      asideComment: [
+        {
+          title: "最新评论",time: "一天前",
+          comment: "我是评论1"
+        },
+        {
+          title: "最近评论",time: "一周前",
+          comment: "我是评论2"
+        },
+        {
+          title: "旧评论",time: "一个月前",
+          comment: "我是评论3"
+        }
+      ]
     }
   }
 }

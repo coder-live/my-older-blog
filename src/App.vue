@@ -4,7 +4,7 @@
       <div id="top"></div>
       <tab-bar :tbi= "tbi" :path= "arr"></tab-bar>
     </div>
-    <keep-alive><router-view/></keep-alive>
+    <keep-alive><router-view :key= "$route.fullPath"/></keep-alive>
   </div>
 </template>
 <script>
@@ -20,6 +20,12 @@ import TabBar from "./components/common/tabbar/TabBar"
         arr: ["/home","/notes","/randomnotes","/introduce","/projects"]
       }
     },
+    watch: {
+      "$route": function( to,from ){
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    }
   }
 
 
@@ -33,7 +39,7 @@ import TabBar from "./components/common/tabbar/TabBar"
     z-index: 99;
   }
   #top{
-    height: 5px;
+    height: 3px;
     background-image: linear-gradient(to right, green, blue,red,#ccff66);
   }
 </style>

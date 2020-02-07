@@ -1,38 +1,31 @@
 <template>
-  <div id= "home">
-    <home-swiper></home-swiper>
-    <home-list></home-list>
+  <div class= "detail">
+    <detail-item></detail-item>
     <home-aside></home-aside>
     <home-footer></home-footer>
     <back-top v-show= "isShow" @click.native= "topClick"></back-top>
   </div>
-  
 </template>
 
 <script>
-import HomeSwiper from "./homechildren/HomeSwiper"
-import HomeList from "./homelist/HomeList"
-import HomeAside from "./homeaside/HomeAside"
-import HomeFooter from "./homechildren/HomeFooter"
+import DetailItem from "./DetailItem"
+import HomeFooter from "@/views/home/homechildren/HomeFooter";
+import HomeAside from "@/views/home/homeaside/HomeAside";
 
-import {mixin} from "@/commonjs/Mixins.js"
-
+import {mixin} from "@/commonjs/Mixins.js";
 export default {
-  name: 'home',
+  name: 'detail',
   components: {
-    HomeSwiper,
     HomeFooter,
     HomeAside,
-    HomeList,
-
+    DetailItem
   },
-  mixins: [mixin],
   data() {
     return {
       
     }
   },
-  
+  mixins: [mixin],
   methods: {
     scroll( e ) {
       // let Delta;
@@ -48,7 +41,6 @@ export default {
       //   }
       // }
       let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      //console.log(scrollTop)
       this.isShow = scrollTop > 600? true : false;
     },
     topClick() {
@@ -57,12 +49,12 @@ export default {
       this.isShow = false
     }
   },
-  
 }
+
 </script>
 
 <style scoped>
-  #home{
+  .detail{
     position: relative;
     height: 1750px;
     margin-top: 59px;
