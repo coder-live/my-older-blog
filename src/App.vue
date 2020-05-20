@@ -20,18 +20,43 @@ import TabBar from "./components/common/tabbar/TabBar"
         arr: ["/home","/notes","/randomnotes","/introduce","/projects"]
       }
     },
+    created() {
+      //console.log(55)
+      window.onload = function() {
+        flexSize();
+      },
+      window.addEventListener("resize",flexSize);
+      function flexSize() {
+        let wid = window.screen.width;
+        
+        let fixWidth = 1280;
+        let scale = wid/fixWidth;
+        let meta = document.createElement("meta");
+        meta.setAttribute("name","viewport");
+        meta.setAttribute("content",`width:device-width,
+        initial-scale=${scale},user-scalable=no`);
+        document.head.appendChild(meta);
+      }
+    },
     watch: {
       "$route": function( to,from ){
+        //console.log(this.$route)
+        //console.log(from)
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
-      }
-    }
+      },
+      
+    },
+
   }
 
 
 </script>
 <style>
   @import "assets/css/base.css";
+  #app{
+    
+  }
   #tb{
     width: 100vw;
     position: fixed;

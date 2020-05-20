@@ -3,18 +3,23 @@
     <div class="head">
       <div class="title">{{title}}</div>
       <icon :icon-num= "iconNum"><span slot= "left">
-        <img src="~assets/img/icon/time.svg" alt=""> 萧逸
+        <img src="~assets/img/icon/text/author.svg" alt=""> 萧逸
       </span></icon>
     </div>
-    <div class="content">id:{{id}}文章内容</div>
+    <div class="content">{{text}}</div>
     <div class="share">
       <div class="click" :class= "{isAgr: isAgr}" @click= "agrClick">赞 {{clickNum}}</div>
-      <icon :is-click= "true"><span slot= "left" style="font-size: 16px;">分享到 :</span></icon>
+      <icon :is-click= "true" :is-huge= "true" :choose-icon= "'share'">
+        <span slot= "left" class= "share-to">分享到 :</span>
+      </icon>
     </div>
     <div class="send">
       <div>发表评论(共{{commentNum}}条评论)</div>
-      <div class="text" contenteditable= "true" @click.once= "textClick" @input= "edit" @blur= "onblur">请输入评论内容</div>
-      <icon :is-click= "true"><span class= "issue">发布</span></icon>
+      <div class="text" contenteditable= "true" 
+      @focus= "textClick" @input= "edit" @blur= "onblur">请输入评论内容</div>
+      <icon :is-click= "true" :choose-icon= "'sendText'">
+        <span class= "issue">发布</span>
+      </icon>
       <div class="comments">id:{{id}}我是评论</div>
     </div>
   </div>
@@ -57,11 +62,7 @@ export default {
     edit() {
       let text = document.getElementsByClassName("text")[0];
       text.style.color = "#222";
-      //console.log(1);
-      if( !text.innerText ) {
-        text.innerText = "请输入评论内容";
-        text.style.color = "#eee";
-      }
+
     },
     onblur() {
       let text = document.getElementsByClassName("text")[0];
@@ -78,10 +79,10 @@ export default {
     iconNum() {
       //console.log(this.$route.query)
       return this.$route.query.iconNum
-    }
+    },
   },
   created() {
-    this.id = this.$route.query.id
+    this.text = this.$route.query.text
   }
 }
 
@@ -105,6 +106,7 @@ export default {
     margin-top: 1px;
     padding: 20px;
     background: #fff;
+    line-height: 22px;
   }
   .detail-item .share{
     margin-top: 2px;
@@ -113,13 +115,17 @@ export default {
     font-size: 18px;
   }
   .detail-item .share .click{
-    width: 100px;
+    width: 80px;
     border: 1px solid #777;
-    padding: 10px;
+    padding: 8px;
     margin: 20px auto;
     border-radius: 110px;
     color: #777;
     cursor: pointer;
+  }
+  .detail-item .share .share-to{
+    font-size: 16px;
+    vertical-align: middle;
   }
   .detail-item .share .isAgr{
     border: 1px solid skyblue;

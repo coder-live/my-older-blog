@@ -30,11 +30,12 @@ export default {
     return {
       introduceData: [
         {
-          listItem: "当前位置: 简介",
-          listItemTit: "简介1",
+          listItem: "当前位置: 博主简介(置顶)",
+          listItemTit: "博主介绍",
           imgSrc: require("@/assets/img/items/05.jpg"),
-          iconNum: ["2020.01.29","06","05","03"],
-          id: 20     
+          iconNum: ["244","2020.01.29","06","05","03"],
+          id: 20,
+          text: "我是一名新人,希望以自身所学,描绘出未来美好的蓝图!"     
         }  
       ],
     }

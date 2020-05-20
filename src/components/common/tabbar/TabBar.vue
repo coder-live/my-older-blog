@@ -5,7 +5,7 @@
       class= "tab-bar-item" 
       :class= "{active:currentIndex===index}"
       :path= "path"
-      @click= "itemClick(index,item)" :key= "item">
+      @click= "itemClick(index)" :key= "item">
       {{item}}
     </div>
     <div class="search">
@@ -49,12 +49,20 @@ export default {
       this.currentIndex = index;
       this.$route.path === this.path[index] || this.$router.replace(this.path[index]);
       //console.log(this.$route.path)
+      console.log(this.currentIndex)
     },
     titleClick() {
       this.$router.replace("/home")
     }
+  },
+  created() {
+    //console.log(this.currentIndex)
+  },
+  watch: {
+    "$route": function( to,from ){
+      this.currentIndex = this.path.indexOf(to.path)
+    }
   }
-
 }
 </script>
 

@@ -5,12 +5,28 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    iconSrc: [
-      require("@/assets/img/icon/time.svg"), 
-      require("@/assets/img/icon/like.svg"),
-      require("@/assets/img/icon/collecte.svg"),
-      require("@/assets/img/icon/comment.svg")
-    ]
+    iconSrcText: [
+      require("@/assets/img/icon/text/visible.svg"), 
+      require("@/assets/img/icon/text/time.svg"), 
+      require("@/assets/img/icon/text/like.svg"),
+      require("@/assets/img/icon/text/collecte.svg"),
+      require("@/assets/img/icon/text/comment.svg")
+    ],
+    iconSrcShare: [
+      require("@/assets/img/icon/share/qq.svg"), 
+      require("@/assets/img/icon/share/weixin.svg"), 
+      require("@/assets/img/icon/share/weibo.svg"), 
+    ],
+    iconSrcSendText: [
+      require("@/assets/img/icon/sendText/express.svg"),
+      require("@/assets/img/icon/sendText/photo.svg"),
+    ],
+    iconSrcAside: [
+      require("@/assets/img/icon/text/visible.svg"),
+      require("@/assets/img/icon/text/like.svg"),
+      require("@/assets/img/icon/text/collecte.svg"),
+      require("@/assets/img/icon/text/comment.svg")
+    ],
   },
   mutations: {
   },

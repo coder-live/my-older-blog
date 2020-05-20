@@ -13,9 +13,10 @@ const Detail = () => import('@/views/detail/Detail');
 const routes = [
   {
     path: '/',
-    redirect: "/home"
+    redirect: {name: "home"}
   },
   {
+    name: "home",
     path: "/home",
     component: Home,
     meta: {title: "萧逸博客"}
@@ -43,6 +44,10 @@ const routes = [
   {
     path: "/detail",
     component: Detail,
+  },
+  {
+    path: "*",
+    component: Home
   }
 ]
 
